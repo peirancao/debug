@@ -1,7 +1,14 @@
-define("app/index/1.0.0/index-debug", ["arale/widget/1.0.2/widget-debug", "arale/base/1.0.1/base-debug", "arale/class/1.0.0/class-debug", "arale/events/1.0.0/events-debug", "$-debug", "arale/widget/1.0.2/templatable-debug", "gallery/handlebars/1.0.0/handlebars-debug"], function(require, exports, module) {
+define("app/index/1.0.0/alert-debug", [], function(require, exports) {
+    exports.init = function(msg) {
+        window.alert(msg);
+    }
+});
+define("app/index/1.0.0/index-debug", ["./alert-debug", "arale/widget/1.0.2/widget-debug", "arale/base/1.0.1/base-debug", "arale/class/1.0.0/class-debug", "arale/events/1.0.0/events-debug", "$-debug", "arale/widget/1.0.2/templatable-debug", "gallery/handlebars/1.0.0/handlebars-debug"], function(require, exports, module) {
     var Widget = require('arale/widget/1.0.2/widget-debug');
     
     var Templatable = require('arale/widget/1.0.2/templatable-debug');
+    
+    var Alert = require('./alert-debug');
     
     var Index = Widget.extend({
         Implements: Templatable,
@@ -16,7 +23,8 @@ define("app/index/1.0.0/index-debug", ["arale/widget/1.0.2/widget-debug", "arale
         events: {
             'mouseenter .hd': 'focusTitle',
             'mouseleave .hd': 'blurTitle',
-            'click .bd': 'clickBody'
+            'click .bd': 'clickBody',
+            'click #open': 'openAlert'
         },
         
         focusTitle: function() {
@@ -29,6 +37,10 @@ define("app/index/1.0.0/index-debug", ["arale/widget/1.0.2/widget-debug", "arale
         
         clickBody: function() {
             this.$('.bd').css('backgroundColor', '#CCC');
+        },
+        
+        openAlert: function() {
+            Alert.init('hello seajs');
         }
     });
     

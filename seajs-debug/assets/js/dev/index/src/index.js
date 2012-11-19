@@ -3,6 +3,8 @@ define(function(require, exports, module) {
     
     var Templatable = require('templatable');
     
+    var Alert = require('./alert');
+    
     var Index = Widget.extend({
         Implements: Templatable,
         
@@ -16,7 +18,8 @@ define(function(require, exports, module) {
         events: {
             'mouseenter .hd': 'focusTitle',
             'mouseleave .hd': 'blurTitle',
-            'click .bd': 'clickBody'
+            'click .bd': 'clickBody',
+            'click #open': 'openAlert'
         },
         
         focusTitle: function() {
@@ -29,6 +32,10 @@ define(function(require, exports, module) {
         
         clickBody: function() {
             this.$('.bd').css('backgroundColor', '#CCC');
+        },
+        
+        openAlert: function() {
+            Alert.init('hello seajs');
         }
     });
     
