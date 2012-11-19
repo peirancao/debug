@@ -3,8 +3,32 @@
 <head>
     <meta charset="utf-8" />
     <title>seajs-debug</title>
+    <script src="seajs-debug/assets/js/lib/seajs/1.3.0/sea.js" charset="utf-8" id="seajsnode"></script>
 </head>
 <body>
-<p>seajs-debug</p>
+    <div id="module"></div>
+    <script>
+        seajs.config({
+            alias: {
+                'app': '/seajs-debug/assets/js/app',
+                '$': 'gallery/jquery/1.8.2/jquery',
+                'jquery': 'gallery/jquery/1.8.2/jquery'
+            },
+            comboExcludes: /jquery\.js/
+        });
+        seajs.use(['jquery', 'app/index/1.0.0/index'], function($, Index) {
+            var index = new Index({
+                model: {
+                    title: 'im a title',
+                    content: 'im a content'
+                },
+                parentNode: '#module'
+            });
+            index.render();
+            $(function() {
+                $('#module').css('background', 'green');
+            });
+        });
+    </script>
 </body>
 </html>
