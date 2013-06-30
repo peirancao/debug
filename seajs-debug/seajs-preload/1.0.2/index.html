@@ -6,9 +6,7 @@
     <script src="http://caopeiran.github.com/debug/seajs-debug/assets/js/lib/seajs/seajs/2.1.0/sea.js" charset="utf-8" id="seajsnode"></script>
 </head>
 <body>
-    <p id="p1"></p>
-    <p id="p2"></p>
-    <p id="p3"></p>
+    <p id="p"></p>
     <div id="module"></div>
     <script>
         seajs.config({
@@ -26,14 +24,10 @@
             
         });
         
-        document.getElementById('p1').innerHTML = 'seajs.log :' + (seajs && seajs.log);
-        document.getElementById('p2').innerHTML = 'seajs.text :' + (seajs && seajs.text);
-        document.getElementById('p3').innerHTML = 'seajs.style :' + (seajs && seajs.style);
+        document.getElementById('p').innerHTML = 'seajs.log :' + (seajs && seajs.log);
         
         seajs.use(['jquery', 'app/foo/1.0.1/foo'], function($) {
             $('#module').append('<p>seajs.log :' + (seajs && seajs.log) + '</p>');
-            $('#module').append('<p>seajs.text :' + (seajs && seajs.text) + '</p>');
-            $('#module').append('<p>seajs.style :' + (seajs && seajs.style) + '</p>');
         });
     </script>
 </body>
