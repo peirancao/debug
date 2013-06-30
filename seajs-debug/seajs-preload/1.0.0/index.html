@@ -26,9 +26,9 @@
             
         });
         
-        document.getElementById('#p1').innerHTML = 'seajs.log :' + (seajs && seajs.log);
-        document.getElementById('#p2').innerHTML = 'seajs.text :' + (seajs && seajs.text);
-        document.getElementById('#p3').innerHTML = 'seajs.style :' + (seajs && seajs.style);
+        document.getElementById('p1').innerHTML = 'seajs.log :' + (seajs && seajs.log);
+        document.getElementById('p2').innerHTML = 'seajs.text :' + (seajs && seajs.text);
+        document.getElementById('p3').innerHTML = 'seajs.style :' + (seajs && seajs.style);
         
         seajs.use(['jquery', 'app/foo/1.0.1/foo'], function($) {
             $('#module').append('<p>seajs.log :' + (seajs && seajs.log) + '</p>');
