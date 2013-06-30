@@ -22,7 +22,7 @@
             preload: ['seajs/seajs-text/1.0.0/seajs-text', 'seajs/seajs-style/1.0.0/seajs-style', 'seajs/seajs-log/1.0.0/seajs-log']
             
         });
-        seajs.use(['jquery', 'app/foo/1.0.0/foo'], function($) {
+        seajs.use(['jquery', 'app/foo/1.0.1/foo'], function($) {
             $('#module').append('<p>seajs.log :' + (seajs && seajs.log) + '</p>');
             $('#module').append('<p>seajs.text :' + (seajs && seajs.text) + '</p>');
             $('#module').append('<p>seajs.style :' + (seajs && seajs.style) + '</p>');
