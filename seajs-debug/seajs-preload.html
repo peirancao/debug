@@ -7,6 +7,9 @@
 </head>
 <body>
     <div id="module"></div>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
     <script>
         seajs.config({
             alias: {
@@ -22,6 +25,11 @@
             preload: ['seajs/seajs-text/1.0.0/seajs-text', 'seajs/seajs-style/1.0.0/seajs-style', 'seajs/seajs-log/1.0.0/seajs-log']
             
         });
+        
+        document.getElementById('#p1').innerHTML = 'seajs.log :' + (seajs && seajs.log);
+        document.getElementById('#p2').innerHTML = 'seajs.text :' + (seajs && seajs.text);
+        document.getElementById('#p3').innerHTML = 'seajs.style :' + (seajs && seajs.style);
+        
         seajs.use(['jquery', 'app/foo/1.0.1/foo'], function($) {
             $('#module').append('<p>seajs.log :' + (seajs && seajs.log) + '</p>');
             $('#module').append('<p>seajs.text :' + (seajs && seajs.text) + '</p>');
